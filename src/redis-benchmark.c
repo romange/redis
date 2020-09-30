@@ -303,6 +303,7 @@ static redisConfig *getRedisConfig(const char *ip, int port,
         freeRedisConfig(cfg);
         return NULL;
     }
+#if 0
     redisAppendCommand(c, "CONFIG GET %s", "save");
     redisAppendCommand(c, "CONFIG GET %s", "appendonly");
     int i = 0;
@@ -326,6 +327,7 @@ static redisConfig *getRedisConfig(const char *ip, int port,
         }
     }
     freeReplyObject(reply);
+ #endif
     redisFree(c);
     return cfg;
 fail:
